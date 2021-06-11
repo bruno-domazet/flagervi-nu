@@ -12,12 +12,14 @@
     "backend"
   ],
   "scripts": {
-    "build": "tsc --build tsconfig.json",
+    "build": "tsc --build ./backend/tsconfig.json && tsc --build ./frontend/tsconfig.json ",
     "run:back": "bash -c \"./backend/run.sh\"",
     "run:front": "bash -c \"./front/run.sh\""
   },
   "dependencies": {
     "@types/node": "^15.12.2",
+    "debug": "^4.3.1",
+    "dotenv": "^10.0.0",
     "prettier": "^2.3.1"
   }
 }

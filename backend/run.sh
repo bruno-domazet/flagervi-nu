@@ -1,3 +1,3 @@
 set -e
 echo "Starting Backend"
-node dist/index.js
+node -r dotenv/config dist/index.js dotenv_config_path=../.env
