@@ -12,7 +12,12 @@
     "backend"
   ],
   "scripts": {
-    "back":"bash -c \"./backend/run.sh\"",
-    "front":"bash -c \"./front/run.sh\""
+    "build": "tsc --build tsconfig.json",
+    "run:back": "bash -c \"./backend/run.sh\"",
+    "run:front": "bash -c \"./front/run.sh\""
+  },
+  "dependencies": {
+    "@types/node": "^15.12.2",
+    "prettier": "^2.3.1"
   }
 }
