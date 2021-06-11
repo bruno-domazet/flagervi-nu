@@ -5,34 +5,34 @@ const debug = require('debug')('api')
 const server: FastifyInstance = Fastify({ ignoreTrailingSlash: true })
 
 const opts: RouteShorthandOptions = {
-	schema: {
-		response: {
-			200: {
-				type: 'object',
-				properties: {
-					pong: {
-						type: 'string',
-					},
-				},
-			},
-		},
-	},
+  schema: {
+    response: {
+      200: {
+        type: 'object',
+        properties: {
+          pong: {
+            type: 'string',
+          },
+        },
+      },
+    },
+  },
 }
 
 server.get('/ping', opts, async (request, reply) => {
-	debug(request.headers)
-	return { pong: 'it worked!' }
+  debug(request.headers)
+  return { pong: 'it worked!' }
 })
 
 const start = async () => {
-	try {
-		await server.listen(process.env.API_PORT || 3000)
+  try {
+    await server.listen(process.env.API_PORT || 3000)
 
-		const address = server.server.address()
-		// const port = typeof address === 'string' ? address : address?.port
-	} catch (err) {
-		server.log.error(err)
-		process.exit(1)
-	}
+    const address = server.server.address()
+    // const port = typeof address === 'string' ? address : address?.port
+  } catch (err) {
+    server.log.error(err)
+    process.exit(1)
+  }
 }
 start()

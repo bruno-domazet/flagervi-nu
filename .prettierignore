@@ -2,6 +2,7 @@ __generated__
 node_modules
 .editorconfig
 Dockerfile
+LICENSE
 *.yml
 *.yaml
 *.sh
