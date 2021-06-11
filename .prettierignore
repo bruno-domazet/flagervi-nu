@@ -1,6 +1,5 @@
 __generated__
 node_modules
-package.json
 .editorconfig
 Dockerfile
 *.yml
