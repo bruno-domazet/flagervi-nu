@@ -9,3 +9,5 @@ LICENSE
 *.lock
 .*ignore
 *.log
+.next
+dist

@@ -12,9 +12,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start:next": "next start -p 3001",
+    "start": "bash -c \"./run.sh\""
   },
   "devDependencies": {
-    "@tsconfig/next": "^1.0.0"
+    "@tsconfig/next": "^1.0.0",
+    "@types/react": "^17.0.11"
   }
 }
