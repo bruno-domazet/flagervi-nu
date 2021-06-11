@@ -1,2 +1,1 @@
-# flagervi-nu
-flagervi.nu
+# flagervi.nu

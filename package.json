@@ -1,0 +1,18 @@
+{
+  "name": "flagervi-nu",
+  "version": "1.0.0",
+  "description": "flagervi.nu",
+  "main": "index.js",
+  "repository": "git@github.com:bruno-domazet/flagervi-nu.git",
+  "author": "Bruno Østergaard Domazet <bruno.domazet@protonmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "back":"bash -c \"./backend/run.sh\"",
+    "front":"bash -c \"./front/run.sh\""
+  }
+}
