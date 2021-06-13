@@ -1,25 +1,23 @@
 {
-  "name": "flagervi-nu",
+  "name": "frontend",
   "version": "1.0.0",
-  "description": "flagervi.nu",
   "main": "index.js",
-  "repository": "git@github.com:bruno-domazet/flagervi-nu.git",
-  "author": "Bruno Østergaard Domazet <bruno.domazet@protonmail.com>",
   "license": "MIT",
-  "private": true,
-  "workspaces": [
-    "frontend",
-    "backend"
-  ],
-  "scripts": {
-    "build": "tsc --build ./backend/tsconfig.json && tsc --build ./frontend/tsconfig.json ",
-    "run:back": "bash -c \"./backend/run.sh\"",
-    "run:front": "bash -c \"./front/run.sh\""
-  },
   "dependencies": {
-    "@types/node": "^15.12.2",
-    "debug": "^4.3.1",
-    "dotenv": "^10.0.0",
-    "prettier": "^2.3.1"
+    "next": "^10.2.3",
+    "next-auth": "^3.26.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "sqlite3": "^5.0.2",
+    "typescript": "^4.3.2"
+  },
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start -p 3001"
+  },
+  "devDependencies": {
+    "@tsconfig/next": "^1.0.0",
+    "@types/react": "^17.0.11"
   }
 }
