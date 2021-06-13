@@ -108,7 +108,7 @@ dist
 .tern-port
 
 # sqlite
-*.sqlite
+*.sqlite*
 
 # Keys
 *.key
