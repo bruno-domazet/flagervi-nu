@@ -4,8 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@next-auth/prisma-adapter": "^0.4.4-canary.64",
     "next": "^10.2.3",
     "next-auth": "^3.26.1",
+    "prisma": "^2.24.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "sqlite3": "^5.0.2",
@@ -14,7 +16,8 @@
   "scripts": {
     "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start -p 3001"
+    "start": "next start -p 3001",
+    "gen":"yarn prisma generate"
   },
   "devDependencies": {
     "@tsconfig/next": "^1.0.0",

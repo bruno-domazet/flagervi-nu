@@ -1,8 +1,9 @@
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
-// import Adapters from 'next-auth/adapters'
-import Adapter from '@next-auth/typeorm-adapter'
+import { PrismaAdapter } from '@next-auth/prisma-adapter'
+import { PrismaClient } from '@prisma/client'
 
+const prisma = new PrismaClient()
 // For more information on each option (and a full list of options) go to
 // https://next-auth.js.org/configuration/options
 export default NextAuth({
@@ -82,11 +83,7 @@ export default NextAuth({
   // * The Email provider requires a database (OAuth providers do not)
   // database: process.env.DATABASE_URL,
 
-  adapter: Adapter({
-    type: 'sqlite',
-    database: process.env.DATABASE_LOCATION,
-    synchronize: true,
-  }),
+  adapter: PrismaAdapter(prisma),
 
   // The secret should be set to a reasonably long random string.
   // It is used to sign cookies and to sign and encrypt JSON Web Tokens, unless
