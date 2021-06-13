@@ -4,15 +4,12 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
+console.log(`process.env.JWT_SIGNING_PRIVATE_KEY`, process.env.JWT_SIGNING_PRIVATE_KEY)
 // For more information on each option (and a full list of options) go to
 // https://next-auth.js.org/configuration/options
 export default NextAuth({
   // https://next-auth.js.org/configuration/providers
   providers: [
-    // Providers.Email({
-    //   server: process.env.EMAIL_SERVER,
-    //   from: process.env.EMAIL_FROM,
-    // }),
     // Temporarily removing the Apple provider from the demo site as the
     // callback URL for it needs updating due to Vercel changing domains
     /*
@@ -30,23 +27,10 @@ export default NextAuth({
       clientId: process.env.FACEBOOK_ID,
       clientSecret: process.env.FACEBOOK_SECRET,
     }),
-    // Providers.GitHub({
-    //   clientId: process.env.GITHUB_ID,
-    //   clientSecret: process.env.GITHUB_SECRET,
-    // }),
     Providers.Google({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
     }),
-    // Providers.Twitter({
-    //   clientId: process.env.TWITTER_ID,
-    //   clientSecret: process.env.TWITTER_SECRET,
-    // }),
-    // Providers.Auth0({
-    //   clientId: process.env.AUTH0_ID,
-    //   clientSecret: process.env.AUTH0_SECRET,
-    //   domain: process.env.AUTH0_DOMAIN,
-    // }),
     Providers.Credentials({
       // The name to display on the sign in form (e.g. 'Sign in with...')
       name: 'Email',
@@ -54,7 +38,7 @@ export default NextAuth({
       // You can specify whatever fields you are expecting to be submitted.
       // e.g. domain, username, password, 2FA token, etc.
       credentials: {
-        username: { label: 'Email', type: 'text', placeholder: 'email@example.com' },
+        username: { label: 'Email', type: 'email', placeholder: 'email@example.com' },
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials, req) {
@@ -111,8 +95,7 @@ export default NextAuth({
   jwt: {
     // A secret to use for key generation (you should set this explicitly)
     secret: process.env.JWT_SECRET,
-    // TODO:
-    // signingKey: process.env.JWT_SIGNING_PRIVATE_KEY
+    // signingKey: process.env.JWT_SIGNING_PRIVATE_KEY,
     // Set to true to use encryption (default: false)
     // encryption: true,
     // You can define your own encode/decode functions for signing and encryption
