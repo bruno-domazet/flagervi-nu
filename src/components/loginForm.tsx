@@ -54,16 +54,18 @@ export default function LoginForm() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className="d-flex" onSubmit={handleSubmit}>
         <h3>Login/opret bruger</h3>
         <label htmlFor="email">
-          <input type="email" placeholder={'email@domæne.com'} name="email" id="email" />
+          <input className="form-control" type="email" placeholder={'email@domæne.com'} name="email" id="email" />
         </label>
 
         <label htmlFor="password">
-          <input type="password" name="password" id="password" />
+          <input className="form-control" type="password" name="password" id="password" />
         </label>
-        <button type="submit" className={styles.btn}>login</button>
+        <button type="submit" className={['btn', 'btn-outline-success', styles.btn].join(' ')}>
+          login
+        </button>
       </form>
     </>
   )

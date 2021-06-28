@@ -1,32 +1,26 @@
-import Link from 'next/link'
 import React from 'react'
 import LoginForm from '../components/loginForm'
+import { Navigation } from './navigation'
 
 export default function Header() {
+  const navItems = [
+    { name: 'Home', url: '#' },
+    { name: 'Features', url: '#' },
+  ]
+  const onToggle = () => {
+    console.log(`onToggle`)
+  }
   return (
     <header>
-      <div>
-        <p>logo</p>
-      </div>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link href="/">
-                <a>Home</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/create">
-                <a>opret</a>
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div>
-        <LoginForm />
-      </div>
+      <nav className="navbar navbar-light bg-light">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#">
+            <img src="../public/logo.png" alt="" width="30" height="24" className="d-inline-block align-text-top" />
+            Bootstrap
+          </a>
+          <Navigation items={navItems} onToggle={onToggle} />
+        </div>
+      </nav>
     </header>
   )
 }
