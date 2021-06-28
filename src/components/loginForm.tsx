@@ -1,4 +1,5 @@
 import useUser from '../lib/useAuth'
+import styles from './loginForm.module.scss'
 
 export default function LoginForm() {
   const { user, mutateUser } = useUser()
@@ -62,7 +63,7 @@ export default function LoginForm() {
         <label htmlFor="password">
           <input type="password" name="password" id="password" />
         </label>
-        <button type="submit">login</button>
+        <button type="submit" className={styles.btn}>login</button>
       </form>
     </>
   )
