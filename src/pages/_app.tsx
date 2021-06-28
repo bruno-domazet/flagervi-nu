@@ -1,3 +1,5 @@
+// add bootstrap css 
+import 'bootstrap/dist/css/bootstrap.css'// own css files here
 import './styles.css'
 
 // Use the <Provider> to improve performance and allow components that call
