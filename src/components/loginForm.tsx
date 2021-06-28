@@ -2,7 +2,6 @@ import useUser from '../lib/useAuth'
 
 export default function LoginForm() {
   const { user, mutateUser } = useUser()
-  console.log(`user`, user)
 
   const handleSubmit = async e => {
     e.preventDefault()
