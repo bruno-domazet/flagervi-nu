@@ -16,35 +16,35 @@ import dbClient from '../../../lib/dbClient'
 // }
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const user = await isAuthenticated(req, res)
-  console.log(`object`, { method: req.method, user })
+  // const user = await isAuthenticated(req, res)
+  // console.log(`object`, { method: req.method, user })
 
-  switch (req.method) {
-    case 'GET':
-      // get a paginated list of groups the user belongs to
-      const userObj = await dbClient.getUser(user.user.email)
-      // return res.json({ groups: userObj.groups })
+  // switch (req.method) {
+  //   case 'GET':
+  //     // get a paginated list of groups the user belongs to
+  //     const userObj = await dbClient.getUser(user.user.email)
+  //     // return res.json({ groups: userObj.groups })
 
-      break
-    case 'POST':
-      // TODO: upsert and return new object
-      console.log(`body`, req.body)
-      const group = await dbClient.group.create({
-        data: {
-          name: req.body.name.toString(),
-          owner: {
-            connectOrCreate: {
-              create: { email: user.user.email },
-              where: {
-                email: user.user.email,
-              },
-            },
-          },
-        },
-      })
-      return res.json({ success: true, group })
+  //     break
+  //   case 'POST':
+  //     // TODO: upsert and return new object
+  //     console.log(`body`, req.body)
+  //     const group = await dbClient.group.create({
+  //       data: {
+  //         name: req.body.name.toString(),
+  //         owner: {
+  //           connectOrCreate: {
+  //             create: { email: user.user.email },
+  //             where: {
+  //               email: user.user.email,
+  //             },
+  //           },
+  //         },
+  //       },
+  //     })
+      return res.json({ success: true })
 
-    default:
-      throw new Error('Method not supported')
-  }
+  //   default:
+  //     throw new Error('Method not supported')
+  // }
 }

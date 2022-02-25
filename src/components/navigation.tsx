@@ -1,16 +1,26 @@
 import React from 'react'
+import useUser from '../lib/useAuth'
 
 export const Navigation: React.FunctionComponent<{ items: { name: string; url: string }[]; onToggle?: () => void }> =
   props => {
+    const { user } = useUser()
     const [expand, setExpand] = React.useState(false)
 
     const onClick = () => {
       setExpand(!expand)
-      
+
       if (props.onToggle) {
         props.onToggle()
       }
     }
+
+    const loginItem = {
+      name: (user && 'Logout') || 'Login',
+      url: '#',
+    }
+
+    const menuItems = [...props.items, loginItem]
+
     return (
       <>
         <button
